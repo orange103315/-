@@ -51,6 +51,7 @@ public class Enemy : MonoBehaviour
         // 弾の削除
         Destroy(c.gameObject);
 
+
         // 爆発
         spaceship.Explosion();
 
