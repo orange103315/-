@@ -61,7 +61,7 @@ public class Player : MonoBehaviour
             spaceship.Explosion();
 
             // プレイヤーを削除
-            Destroy(gameObject);
+            Destroy(gameObject); 
         }
     }
 }
