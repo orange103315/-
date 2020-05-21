@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿using UnityEngine;
 
 public class Background : MonoBehaviour
@@ -17,3 +18,26 @@ public class Background : MonoBehaviour
 		GetComponent<Renderer>().sharedMaterial.SetTextureOffset ("_MainTex", offset);
 	}
 }
+=======
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Background : MonoBehaviour
+{
+    // スクロールするスピード
+    public float speed = 0.1f;
+
+    void Update()
+    {
+        // 時間によってYの値が0から1に変化していく。1になったら0に戻り、繰り返す。
+        float y = Mathf.Repeat(Time.time * speed, 1);
+
+        // Yの値がずれていくオフセットを作成
+        Vector2 offset = new Vector2(0, y);
+
+        // マテリアルにオフセットを設定する
+        GetComponent<Renderer>().sharedMaterial.SetTextureOffset("_MainTex", offset);
+    }
+}
+>>>>>>> 8486366bc9986d77a2db27f72467a57ca89b0357
