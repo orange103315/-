@@ -5,6 +5,7 @@ public class Bullet : MonoBehaviour
 	// 弾の移動スピード
 	public int speed = 10;
 
+
 	// ゲームオブジェクト生成から削除するまでの時間
 	public float lifeTime = 1;
 
