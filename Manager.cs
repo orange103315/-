@@ -6,7 +6,7 @@ public class Manager : MonoBehaviour
 	// Playerプレハブ
 	public GameObject player;
 	
-	// タイトル
+	//タイトル
 	private GameObject title;
 	
 	void Start ()
