@@ -1,34 +1,47 @@
-
 ﻿using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Rigidbody2D), typeof(Animator))]
 public class Spaceship : MonoBehaviour
 {
-    // 移動スピード
-    public float speed;
+	// 移動スピード
+	public float speed;
+	
+	// 弾を撃つ間隔
+	public float shotDelay;
+	
+	// 弾のPrefab
+	public GameObject bullet;
+	
+	// 弾を撃つかどうか
+	public bool canShot;
+	
+	// 爆発のPrefab
+	public GameObject explosion;
 
-    // 弾を撃つ間隔
-    public float shotDelay;
+	// アニメーターコンポーネント
+	private Animator animator;
 
-    // 弾のPrefab
-    public GameObject bullet;
+	void Start ()
+	{
+		// アニメーターコンポーネントを取得
+		animator = GetComponent<Animator> ();
+	}
 
-    // 弾を撃つかどうか
-    public bool canShot;
+	// 爆発の作成
+	public void Explosion ()
+	{
+		Instantiate (explosion, transform.position, transform.rotation);
+	}
+	
+	// 弾の作成
+	public void Shot (Transform origin)
+	{
+		Instantiate (bullet, origin.position, origin.rotation);
+	}
 
-    // 爆発のPrefab
-    public GameObject explosion;
-
-    // 爆発の作成
-    public void Explosion()
-    {
-        Instantiate(explosion, transform.position, transform.rotation);
-    }
-
-    // 弾の作成
-    public void Shot(Transform origin)
-    {
-        Instantiate(bullet, origin.position, origin.rotation);
-    }
-
+	// アニメーターコンポーネントの取得
+	public Animator GetAnimator()
+	{
+		return animator;
+	}
 }

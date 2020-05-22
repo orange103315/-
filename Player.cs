@@ -62,7 +62,7 @@ public class Player : MonoBehaviour
 		// 制限をかけた値をプレイヤーの位置とする
 		transform.position = pos;
 	}
-
+	
 	// ぶつかった瞬間に呼び出される
 	void OnTriggerEnter2D (Collider2D c)
 	{
@@ -81,7 +81,7 @@ public class Player : MonoBehaviour
 		{
 			// Managerコンポーネントをシーン内から探して取得し、GameOverメソッドを呼び出す
 			FindObjectOfType<Manager>().GameOver();
-			
+
 			// 爆発する
 			spaceship.Explosion();
 		

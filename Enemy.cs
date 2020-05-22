@@ -3,9 +3,15 @@ using System.Collections;
 
 public class Enemy : MonoBehaviour
 {
+	// ヒットポイント
+	public int hp = 1;
+
+	// スコアのポイント
+	public int point = 100;
+
 	// Spaceshipコンポーネント
 	Spaceship spaceship;
-	
+
 	IEnumerator Start ()
 	{
 		
@@ -50,13 +56,34 @@ public class Enemy : MonoBehaviour
 		// レイヤー名がBullet (Player)以外の時は何も行わない
 		if (layerName != "Bullet (Player)") return;
 
+		// PlayerBulletのTransformを取得
+		Transform playerBulletTransform = c.transform.parent;
+
+		// Bulletコンポーネントを取得
+		Bullet bullet =  playerBulletTransform.GetComponent<Bullet>();
+
+		// ヒットポイントを減らす
+		hp = hp - bullet.power;
+
 		// 弾の削除
 		Destroy(c.gameObject);
 
-		// 爆発
-		spaceship.Explosion ();
+		// ヒットポイントが0以下であれば
+		if(hp <= 0 )
+		{
+			// スコアコンポーネントを取得してポイントを追加
+			FindObjectOfType<Score>().AddPoint(point);
+
+			// 爆発
+			spaceship.Explosion ();
+			
+			// エネミーの削除
+			Destroy (gameObject);
+
+		}else{
+			// Damageトリガーをセット
+			spaceship.GetAnimator().SetTrigger("Damage");
 		
-		// エネミーの削除
-		Destroy (gameObject);
+		}
 	}
 }
