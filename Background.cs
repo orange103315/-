@@ -5,6 +5,7 @@ public class Background : MonoBehaviour
 	// スクロールするスピード
 	public float speed = 0.1f;
 	
+
 	void Update ()
 	{
 		// 時間によってYの値が0から1に変化していく。1になったら0に戻り、繰り返す。
