@@ -14,15 +14,15 @@ public class Manager : MonoBehaviour
 		// Titleゲームオブジェクトを検索し取得する
 		title = GameObject.Find ("Title");
 	}
-	
-	void Update ()
-	{
-		// ゲーム中ではなく、Xキーが押されたらtrueを返す。
-		if (IsPlaying () == false && Input.GetKeyDown (KeyCode.X)) {
-			GameStart ();
-		}
-	}
-	
+
+    void Update()
+    {
+        // ゲーム中ではなく、Xキーが押されたらtrueを返す。
+        if (IsPlaying() == false && Input.GetKeyDown(KeyCode.X))
+        {
+            GameStart();
+        }
+    }
 	void GameStart ()
 	{
 		// ゲームスタート時に、タイトルを非表示にしてプレイヤーを作成する
