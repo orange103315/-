@@ -2,6 +2,7 @@
 
 public class Background : MonoBehaviour
 {
+
 	// スクロールするスピード
 	public float speed = 0.1f;
 
