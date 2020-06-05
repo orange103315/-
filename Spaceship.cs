@@ -21,6 +21,7 @@ public class Spaceship : MonoBehaviour
 	// アニメーターコンポーネント
 	private Animator animator;
 
+
 	void Start ()
 	{
 		// アニメーターコンポーネントを取得
