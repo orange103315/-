@@ -11,6 +11,7 @@ public class Score : MonoBehaviour
     // スコア
     private int score;
 
+
     // ハイスコア
     private int highScore;
 
@@ -35,6 +36,9 @@ public class Score : MonoBehaviour
         scoreGUIText.text = score.ToString();
         highScoreGUIText.text = "HighScore : " + highScore.ToString();
     }
+
+
+
 
 
     // ゲーム開始前の状態に戻す
